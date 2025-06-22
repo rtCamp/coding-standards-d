@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<ruleset
+	name="rtCamp-Docs"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd"
+>
+	<description>rtCamp Coding Standards - Docs</description>
+
+	<!-- This ruleset is meant to be used in combination with one of the other rtCamp rulesets. -->
+
+	<rule ref="WordPress-Docs">
+		<!-- Better handled by SlevomatCodingStandard.TypeHints.PropertyTypeHint -->
+		<exclude name="Squiz.Commenting.VariableComment.MissingVar" />
+	</rule>
+	<rule ref="Squiz.Commenting.FunctionComment">
+		<properties>
+			<property name="skipIfInheritdoc" value="true" />
+		</properties>
+	</rule>
+
+	<!--
+		Slevomat sniffs
+		See: https://github.com/slevomat/coding-standard/tree/master#alphabetical-list-of-sniffs
+	-->
+
+	<!-- These are also included in elsewhere but are included here for use with all rulesets. -->
+	<!-- Extra -->
+	<rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.LessSpecificNativeTypeHint" />
+
+	<!-- Strict -->
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint" />
+	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingAnyTypeHint" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingAnyTypeHint" />
+
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessSuppress" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing" />
+	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification" />
+	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.UselessSuppress" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.UselessAnnotation" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.UselessSuppress" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing" />
+
+</ruleset>

@@ -1,0 +1,67 @@
+## @TODO:
+#
+# 1. Enable this workflow when the repo is public or the effort is greenlit a CI/CD budget.
+# 2. Add a PHPCS-run step to test the rulesets against code.
+
+name: Test Rulesets
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  schedule:
+    # Run weekly on Mondays at 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # Allow manual triggering
+
+# Cancels all previous workflow runs for the same branch that have not yet completed.
+concurrency:
+  # The concurrency group contains the workflow name and the branch name.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-rulesets:
+    name: Test rulesets
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php: [8.4, 8.3, 8.2, 8.1, 8.0, 7.4]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, xml, zip
+          tools: composer:v2
+          # Allow for PHP deprecation notices.
+          ini-values: error_reporting = E_ALL & ~E_DEPRECATED
+          coverage: none
+        env:
+          COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate composer.json file
+        run: composer validate --no-check-all --strict
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v3
+        with:
+          # Bust the cache at least once a month - output format: YYYY-MM.
+          custom-cache-suffix: $(date -u "+%Y-%m")
+
+      # Validate the Ruleset XML files.
+      - name: Validate the WordPress rulesets
+        uses: phpcsstandards/xmllint-validate@v1
+        with:
+          pattern: "./*/ruleset.xml"
+          xsd-file: "vendor/squizlabs/php_codesniffer/phpcs.xsd"

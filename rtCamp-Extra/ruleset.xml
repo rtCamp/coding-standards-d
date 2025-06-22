@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<ruleset
+	name="rtCamp-Extra"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd"
+>
+	<description>rtCamp Coding Standards - Extra</description>
+
+	<!-- The rules below are the changes from between the original sniff or parent ruleset, and what should be applied for this Standard. -->
+
+	<rule ref="rtCamp-Basic" />
+
+	<!-- These are disabled in rtCamp-Minimum but should be reenabled. -->
+	<rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
+		<properties>
+			<property name="blank_line_check" value="true"/>
+		</properties>
+	</rule>
+
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
+		<severity>5</severity>
+	</rule>
+	<rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
+		<severity>5</severity>
+	</rule>
+	<rule ref="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket">
+		<severity>5</severity>
+	</rule>
+	<rule ref="PEAR.Functions.FunctionCallSignature.MultipleArguments">
+		<severity>5</severity>
+	</rule>
+	<rule ref="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid">
+		<severity>5</severity>
+	</rule>
+	<rule ref="WordPress.WP.Capabilities.Undetermined">
+		<severity>5</severity>
+	</rule>
+
+	<!-- These formatting rules are suppressed in VIP-GO and restored here.-->
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+		<severity>5</severity>
+	</rule>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines">
+		<severity>5</severity>
+	</rule>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine">
+		<severity>5</severity>
+	</rule>
+
+	<!-- Limit max. consecutive blank lines to 1 instead of 2. -->
+	<rule ref="Squiz.WhiteSpace.FunctionSpacing">
+		<properties>
+			<property name="spacing" value="1"/>
+			<property name="spacingBeforeFirst" value="1"/>
+			<property name="spacingAfterLast" value="0"/>
+		</properties>
+	</rule>
+
+<!-- Additional commenting sniffs are in rtCamp-Docs -->
+	<rule ref="Squiz.Commenting.FunctionComment">
+		<!-- Enabled in WPGraphQL-Docs -->
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop" />
+		<exclude name="Squiz.Commenting.FunctionComment.EmptyThrows" />
+		<properties>
+			<property name="skipIfInheritdoc" value="true" />
+		</properties>
+	</rule>
+
+	<!--
+		Slevomat sniffs
+		See: https://github.com/slevomat/coding-standard/tree/master#alphabetical-list-of-sniffs
+	-->
+	<rule ref="SlevomatCodingStandard.Arrays.ArrayAccess" />
+	<rule ref="SlevomatCodingStandard.Arrays.DisallowImplicitArrayCreation" />
+	<rule ref="SlevomatCodingStandard.Arrays.MultiLineArrayEndBracketPlacement" />
+	<rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma" />
+
+	<rule ref="SlevomatCodingStandard.Classes.BackedEnumTypeSpacing" />
+	<rule ref="SlevomatCodingStandard.Classes.ClassMemberSpacing" />
+	<rule ref="SlevomatCodingStandard.Classes.ConstantSpacing" />
+	<rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
+		<properties>
+			<property name="linesCountAfterOpeningBrace" value="0"/>
+			<property name="linesCountBeforeClosingBrace" value="0"/>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.EnumCaseSpacing" />
+	<rule ref="SlevomatCodingStandard.Classes.MethodSpacing" />
+	<rule ref="SlevomatCodingStandard.Classes.ModernClassNameReference">
+		<properties>
+			<!-- Doesn't use PHPCompatibility-->
+			<property name="enableOnObjects" value="false"/>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.ParentCallSpacing" />
+	<rule ref="SlevomatCodingStandard.Classes.PropertyDeclaration" />
+	<rule ref="SlevomatCodingStandard.Classes.PropertySpacing" />
+	<rule ref="SlevomatCodingStandard.Classes.RequireSelfReference" />
+	<rule ref="SlevomatCodingStandard.Classes.TraitUseDeclaration" />
+	<rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing">
+		<properties>
+			<property name="linesCountBeforeFirstUseWhenFirstInClass" value="0"/>
+		</properties>
+	</rule>
+
+	<rule ref="SlevomatCodingStandard.ControlStructures.DisallowTrailingMultiLineTernaryOperator" />
+	<rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly" />
+
+	<rule ref="SlevomatCodingStandard.Functions.ArrowFunctionDeclaration" />
+	<rule ref="SlevomatCodingStandard.Functions.DisallowEmptyFunction" />
+
+	<rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses">
+		<properties>
+			<property name="caseSensitive" value="true"/>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Namespaces.UnusedUses" />
+	<rule ref="SlevomatCodingStandard.Namespaces.UseSpacing" />
+	<rule ref="SlevomatCodingStandard.Namespaces.UselessAlias" />
+	<rule ref="SlevomatCodingStandard.Namespaces.UseFromSameNamespace" />
+	<rule ref="SlevomatCodingStandard.Namespaces.NamespaceSpacing" />
+
+	<rule ref="SlevomatCodingStandard.PHP.UselessSemicolon" />
+	<rule ref="SlevomatCodingStandard.PHP.UselessParentheses" />
+	<rule ref="SlevomatCodingStandard.PHP.DisallowDirectMagicInvokeCall" />
+	<rule ref="SlevomatCodingStandard.PHP.ShortList" />
+
+	<rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes" />
+	<rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints" />
+	<rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue" />
+	<rule ref="SlevomatCodingStandard.TypeHints.NullTypeHintOnLastPosition" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.LessSpecificNativeTypeHint" />
+
+	<rule ref="SlevomatCodingStandard.Variables.UselessVariable" />
+	<rule ref="SlevomatCodingStandard.Variables.UnusedVariable" >
+		<properties>
+			<property name="ignoreUnusedValuesWhenOnlyKeysAreUsedInForeach" value="true" />
+		</properties>
+	</rule>
+
+</ruleset>

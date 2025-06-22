@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<ruleset
+	name="rtCamp-Basic"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd"
+>
+	<description>rtCamp Coding Standards - Basic</description>
+
+	<!-- The rules below are the changes from between the original sniff or parent ruleset, and what should be applied for this Standard. -->
+
+	<rule ref="rtCamp-Minimum" />
+
+	<!-- Enforce short array syntax -->
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+	<!-- Restore WordPress-Extra rules -->
+	<rule ref="WordPress.NamingConventions.ValidHookName.UseUnderscores">
+	<severity>5</severity>
+	</rule>
+
+	<!-- Tests for inline documentation of code -->
+	<rule ref="WordPress-Docs">
+		<!-- Added back in rtCamp-Docs -->
+		<exclude name="Generic.Commenting.DocComment.MissingShort"/>
+		<exclude name="Squiz.Commenting"/>
+	</rule>
+
+	<!--
+		Slevomat sniffs - Only autofixable ones
+		See: https://github.com/slevomat/coding-standard/tree/master#alphabetical-list-of-sniffs
+	-->
+	<rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility" />
+	<rule ref="SlevomatCodingStandard.Classes.DisallowLateStaticBindingForConstants" />
+	<rule ref="SlevomatCodingStandard.Classes.DisallowMultiConstantDefinition" />
+	<rule ref="SlevomatCodingStandard.Classes.DisallowMultiPropertyDefinition" />
+	<rule ref="SlevomatCodingStandard.Classes.DisallowStringExpressionPropertyFetch" />
+	<rule ref="SlevomatCodingStandard.Classes.UselessLateStaticBinding" />
+
+	<rule ref="SlevomatCodingStandard.ControlStructures.DisallowContinueWithoutIntegerOperandInSwitch" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.UselessTernaryOperator" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.NewWithParentheses" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.UselessIfConditionWithReturn" />
+
+	<rule ref="SlevomatCodingStandard.Functions.StaticClosure" />
+	<rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure" />
+
+	<rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation">
+		<properties>
+			<property name="ignoredAnnotationNames" type="array">
+				<element value="@phpstan-import-type" />
+				<element value="@phpstan-param" />
+				<element value="@phpstan-return" />
+				<element value="@phpstan-template" />
+				<element value="@phpstan-type" />
+				<element value="@phpstan-var" />
+			</property>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Namespaces.UseDoesNotStartWithBackslash" />
+
+	<rule ref="SlevomatCodingStandard.PHP.OptimizedFunctionsWithoutUnpacking" />
+	<rule ref="SlevomatCodingStandard.PHP.TypeCast" />
+
+</ruleset>
