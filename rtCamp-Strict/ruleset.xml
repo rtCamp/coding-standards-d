@@ -52,6 +52,7 @@
 	<rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions" />
 	<rule ref="SlevomatCodingStandard.Namespaces.MultipleUsesPerLine" />
 
+	<rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes" />
 	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingAnyTypeHint" />
 	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingAnyTypeHint" />
 	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingAnyTypeHint" />

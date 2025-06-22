@@ -52,7 +52,6 @@ You can use the following standard names when invoking `phpcs` to select the sni
 
 * [`rtCamp`](./rtCamp/ruleset.xml) - complete set with all of the sniffs in the project.
 
-  ## Ruleset "Levels"
   - [`rtCamp-Minimum`](./rtCamp-Minimum/ruleset.xml): includes the minimum set of code quality and standard sniffs to ensure that your code is "enterprise-ready". **All** rtCamp code is expected to pass this ruleset.
 
   - [`rtCamp-Basic`](./rtCamp-Basic/ruleset.xml): includes all the sniffs in the `rtCamp-Minimum` ruleset, plus additional functional and autofixable sniffs that provide a good balance between code quality and developer experience. This is recommended for client projects where we don't know the skill level of the developers who will be maintaining the project after handoff.

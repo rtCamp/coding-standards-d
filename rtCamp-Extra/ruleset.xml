@@ -125,8 +125,6 @@
 	<rule ref="SlevomatCodingStandard.PHP.DisallowDirectMagicInvokeCall" />
 	<rule ref="SlevomatCodingStandard.PHP.ShortList" />
 
-	<rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes" />
-	<rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints" />
 	<rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue" />
 	<rule ref="SlevomatCodingStandard.TypeHints.NullTypeHintOnLastPosition" />
 	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.LessSpecificNativeTypeHint" />

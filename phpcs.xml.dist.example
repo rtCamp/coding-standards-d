@@ -72,7 +72,7 @@
 		<properties>
 			<property name="prefixes" type="array">
 				<!-- Values: replace the function, class, and variable prefixes used. -->
-				<element value="rtCamp\MyPlugin>" />
+				<element value="rtCamp\MyPlugin" />
 				<element value="rtcamp_myplugin" />
 				<element value="RTCAMP_MYPLUGIN" />
 			</property>
