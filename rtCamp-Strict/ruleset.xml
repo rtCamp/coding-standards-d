@@ -15,7 +15,7 @@
 	<rule ref="WordPress.NamingConventions.ValidVariableName">
 		<severity>5</severity>
 	</rule>
-	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter" >
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
 		<severity>5</severity>
 	</rule>
 	<rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
@@ -27,7 +27,7 @@
 	<rule ref="PEAR.Functions.FunctionCallSignature.MultipleArguments">
 		<severity>5</severity>
 	</rule>
-	<rule ref="WordPress.WP.Capabilities.Undetermined" >
+	<rule ref="WordPress.WP.Capabilities.Undetermined">
 		<severity>5</severity>
 	</rule>
 	<rule ref="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid">

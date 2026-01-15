@@ -33,13 +33,16 @@
 	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingAnyTypeHint" />
 	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingAnyTypeHint" />
 
-	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification" />
+	<rule
+		ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification" />
 	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation" />
 	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessSuppress" />
 	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing" />
-	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification" />
+	<rule
+		ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification" />
 	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.UselessSuppress" />
-	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification" />
+	<rule
+		ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification" />
 	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.UselessAnnotation" />
 	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.UselessSuppress" />
 	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing" />

@@ -6,23 +6,24 @@
 >
 	<description>rtCamp Coding Standards - Basic</description>
 
-	<!-- The rules below are the changes from between the original sniff or parent ruleset, and what should be applied for this Standard. -->
+	<!-- The rules below are the changes from between the original sniff or parent ruleset, and what
+	should be applied for this Standard. -->
 
 	<rule ref="rtCamp-Minimum" />
 
 	<!-- Enforce short array syntax -->
-	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
 	<!-- Restore WordPress-Extra rules -->
 	<rule ref="WordPress.NamingConventions.ValidHookName.UseUnderscores">
-	<severity>5</severity>
+		<severity>5</severity>
 	</rule>
 
 	<!-- Tests for inline documentation of code -->
 	<rule ref="WordPress-Docs">
 		<!-- Added back in rtCamp-Docs -->
-		<exclude name="Generic.Commenting.DocComment.MissingShort"/>
-		<exclude name="Squiz.Commenting"/>
+		<exclude name="Generic.Commenting.DocComment.MissingShort" />
+		<exclude name="Squiz.Commenting" />
 	</rule>
 
 	<!--
@@ -36,7 +37,8 @@
 	<rule ref="SlevomatCodingStandard.Classes.DisallowStringExpressionPropertyFetch" />
 	<rule ref="SlevomatCodingStandard.Classes.UselessLateStaticBinding" />
 
-	<rule ref="SlevomatCodingStandard.ControlStructures.DisallowContinueWithoutIntegerOperandInSwitch" />
+	<rule
+		ref="SlevomatCodingStandard.ControlStructures.DisallowContinueWithoutIntegerOperandInSwitch" />
 	<rule ref="SlevomatCodingStandard.ControlStructures.UselessTernaryOperator" />
 	<rule ref="SlevomatCodingStandard.ControlStructures.NewWithParentheses" />
 	<rule ref="SlevomatCodingStandard.ControlStructures.UselessIfConditionWithReturn" />

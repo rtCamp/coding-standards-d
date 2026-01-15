@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 0.0.2 - 2026-01-15
+
+- fix(rtCamp-Extra): Change `Squiz.WhiteSpace.FunctionSpacing.spacingBeforeFirst` to `1` to prevent conflict with Slevomat rule.
+
 ## 0.0.1 - 2026-01-15
 
 - Initial (internal) release.

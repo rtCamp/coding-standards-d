@@ -5,7 +5,8 @@
 	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd"
 >
 	<description>rtCamp Coding Standards - Minimum</description>
-	<!-- The rules below are the changes from between the original sniff or parent ruleset, and what should be applied for this Standard. -->
+	<!-- The rules below are the changes from between the original sniff or parent ruleset, and what
+	should be applied for this Standard. -->
 
 	<!--
 		Load WordPress VIP Go standards
@@ -21,32 +22,32 @@
 		The main WPCS
 		@see: https://github.com/WordPress/WordPress-Coding-Standard
 	-->
-	<rule ref="WordPress-Extra" >
+	<rule ref="WordPress-Extra">
 		<!-- Deprecated: @todo remove in PHPCS 4.0 -->
 		<exclude name="Generic.Functions.CallTimePassByReference" />
 
 		<!-- Users may be using modern syntaxes -->
-		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
-		<exclude name="Universal.Operators.DisallowShortTernary"/>
-		<exclude name="WordPress.Files.FileName"/>
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax" />
+		<exclude name="Universal.Operators.DisallowShortTernary" />
+		<exclude name="WordPress.Files.FileName" />
 
 		<!-- Added back in rtCamp-Minimum -->
-		<exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores"/>
+		<exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores" />
 
 		<!-- Added back in rtCamp-Strict -->
-		<exclude name="WordPress.NamingConventions.ValidVariableName"/>
+		<exclude name="WordPress.NamingConventions.ValidVariableName" />
 		<exclude name="Generic.CodeAnalysis.UnusedFunctionParameter" />
-		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
-		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
-		<exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments"/>
+		<exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
+		<exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
+		<exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments" />
 		<exclude name="WordPress.WP.Capabilities.Undetermined" />
-		<exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid"/>
+		<exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid" />
 	</rule>
 
 	<!--
 		Load PHPCompatibility & PHPCompatibilityWP
 		@see: https://github.com/PHPCompatibility/PHPCompatibilityWP
 	-->
-		<rule ref="PHPCompatibilityWP" />
+	<rule ref="PHPCompatibilityWP" />
 
 </ruleset>
