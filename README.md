@@ -2,17 +2,15 @@
 
 > The `D` is for David, the standards are for everyone.
 
-![Packagist License](https://img.shields.io/packagist/l/rtCamp/coding-standards-d?color=green) ![Packagist Version](https://img.shields.io/packagist/v/rtCamp/coding-standards-d?label=stable) ![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/rtCamp/coding-standards-d/0.0.1) ![Tests](https://img.shields.io/github/actions/workflow/status/rtCamp/coding-standards-d/test.yml?branch=develop&label=CI)
-
 -----
 
 > [!WARNING]
 > This is an unsanctioned project by @justlevine that is not (yet?) endorsed or supported by rtCamp.
-> No one at rtCamp has been involved or consulted in any way before the creation of this project, neither about the project itself nor about any of the decisions made therein.
 >
 > Tl;dr this is just the _beginning_ of the conversation.
 
 -----
+
 This project is a collection of rules and sniffs for [PHPCS](https://github.com/PHPCSStandards/PHP_CodeSniffer) to validate code developed for Enterprise-grade WordPress projects. It uses rules from:
  - [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards)
  - [Automattic VIP Coding Standards](https://github.com/Automattic/VIP-Coding-Standards)
@@ -21,20 +19,20 @@ This project is a collection of rules and sniffs for [PHPCS](https://github.com/
 
 ## Why use Coding Standards?
 
-Shared coding standards are a great way to ensure consistency in your codebase.
+Shared coding standards are a very effective way to ensure consistency in your codebase.
 
 They help to avoid common pitfalls and mistakes, which in turn helps to reduce bugs and technical debt, and ensure all project contributors are following the same guidelines and best practices. Even better, it empowers us to spend less time writing, debugging, and reviewing code, and more time shipping important and scalable features.
 
-> [!TIP]
+> [!NOTE]
 > With the advent of AI-powered code assistants and agentic tools, having *strict and consistent coding standards* is more important than ever:
 >
-> - Codebase context is more important and provides more value than any `.cursorrules` or `.MD` reference file - this is true for both AI agents and human developers.
+> - Codebase context provides more value than any `AGENTS.md` reference file or Claude Skills; this is true for both AI agents and human developers.
 > - Agents can use the tooling directly to write better code specific to the standards and requirements of the specific codebase.
 > - Developers can use the tooling to validate code written by AI agents (and their human peers) to prevent shipping hard-to-catch bugs and technical debt.
 
 ## Why use _these_ Coding Standards?
 
-As the premier agency for Enterprise-grade WordPress development, rtCamp ensures that all code we write is high-quality, maintainable, and scalable. With hundreds of rtCampers around the world working on high-caliber projects, these rulesets ensure that _anybody_ at rtCamp can quickly jump into any project and ship quality code.
+As the premier agency for enterprise-grade WordPress development, rtCamp needs to ensure that all code we write is high-quality, maintainable, and scalable. These rulesets are tailored to modern, enterprise work, and include important guardrails and autofixable sniffs to help rtCampers ship better code, faster.
 
 ## Rulesets
 
@@ -50,7 +48,9 @@ You can also use `rtCamp` ruleset to get _all_ the checks.
 
 You can use the following standard names when invoking `phpcs` to select the sniffs you want to use.
 
-* [`rtCamp`](./rtCamp/ruleset.xml) - complete set with all of the sniffs in the project.
+  - [`rtCamp`](./rtCamp/ruleset.xml) - complete set with all of the sniffs in the project.
+
+    🎯 Use this ruleset unless you have a particular reason to use or compose the others.
 
   - [`rtCamp-Minimum`](./rtCamp-Minimum/ruleset.xml): includes the minimum set of code quality and standard sniffs to ensure that your code is "enterprise-ready". **All** rtCamp code is expected to pass this ruleset.
 
@@ -67,7 +67,7 @@ You can use the following standard names when invoking `phpcs` to select the sni
 The recommended way to install this project is with [Composer](https://getcomposer.org/). Run the following command to install it into your project:
 
 > [!IMPORTANT]
-> Until this project is release publicly, you will need to add the repository to your `composer.json` file:
+> Until this project is released publicly, you will need to add the repository to your `composer.json` file:
 >
 > ```json
 > {
@@ -79,6 +79,8 @@ The recommended way to install this project is with [Composer](https://getcompos
 >   ],
 > }
 > ```
+> Composer will then ask for a GitHub personal access token (PAT) with `read:packages` scope to access the repository.
+> ( You can use the one in the `auth.json.example`, or even just drop that file into your project. It's only got content:read and metadata:read for this repo. 🤫)
 
 ```bash
 composer require --dev rtCamp/coding-standards-d
@@ -98,9 +100,9 @@ The best way to use these sniffs in your project is to create a [local configura
 
 In this file, you will want to configure the following:
 
-- [`testVersion`](./phpcs.xml.dist.example#L33) - The minimum PHP version you want to test against. This should be the _lowest version of PHP that you want to support_. While WordPress officially supports PHP 7.2+ we recommend PHP 8.2+ unless you have a specific reason to support older versions (e.g. a public plugin or legacy project).
-- [`minimum_wp_version`](./phpcs.xml.dist.example#L43) - The minimum WordPress version you want to test against. This should be the lowest version of WordPress that you want to support. For client projects, this is usually the version of WordPress that the client is usually using.
-- [`WordPress.WP.I18n.text_domain`](./phpcs.xml.dist.example#L63) - The text domain used in your project. This is used by the `WordPress.WP.I18n` sniff to check that all translatable strings are assigned to a text domain. We recommend using the format `rt-<project-name>`.
+- [`testVersion`](./phpcs.xml.dist.example#L49) - The minimum PHP version you want to test against. This should be the _lowest version of PHP that you want to support_. While WordPress officially supports PHP 7.2+ we recommend PHP 8.2+ unless you have a specific reason to support older versions (e.g. a public plugin or legacy project).
+- [`minimum_wp_version`](./phpcs.xml.dist.example#L55) - The minimum WordPress version you want to test against. This should be the lowest version of WordPress that you want to support. For client projects, this is usually the version of WordPress that the client is usually using.
+- [`WordPress.WP.I18n.text_domain`](./phpcs.xml.dist.example#L72) - The text domain used in your project. This is used by the `WordPress.WP.I18n` sniff to check that all translatable strings are assigned to a text domain. We recommend using the format `rt-<project-name>`.
 - [`WordPress.NamingConventions.PrefixAllGlobals`](./phpcs.xml.dist.example#L57) - The list of prefixes used in your project. This is used by the `WordPress.NamingConventions.PrefixAllGlobals` sniff to check that all global functions, classes, constants, and variables are prefixed.
 
 ## Special Configurations
@@ -116,6 +118,8 @@ In this file, you will want to configure the following:
 ## Development and Support
 
 @TODO add a CONTRIBUTING.md / DEVELOPMENT.md
+
+In the interim, open issues in GH, and reach out to David Levine on Slack.
 
 ## Versioning
 
@@ -135,7 +139,7 @@ Per the above, any minor update may report more linting errors than the previous
 > [!IMPORTANT]
 > The above applies to most PHPCS ruleset libraries, including those we use in this project.
 >
-> If you want to ensure that no linting errors are introduced when updating child dependencies (e.g. with `composer update -W` ), make sure to add the specific libary to your own `composer.json:devDependencies` and pin it with a `~` version constraint, e.g. `"automattic/vipcs": "~3.1.0"`.
+> If you want to ensure that no linting errors are introduced when updating child dependencies (e.g. with `composer update -W` ), make sure to add the specific library to your own `composer.json:devDependencies` and pin it with a `~` version constraint, e.g. `"automattic/vipcs": "~3.1.0"`.
 
 ## Care about quality code?
 <a href="https://rtcamp.com/"><img src="https://rtcamp.com/wp-content/uploads/sites/2/2019/04/github-banner@2x.png" alt="Join us at rtCamp, we specialize in providing high performance enterprise WordPress solutions"></a>

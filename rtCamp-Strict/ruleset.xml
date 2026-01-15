@@ -40,7 +40,6 @@
 	-->
 	<rule ref="SlevomatCodingStandard.Classes.DisallowConstructorPropertyPromotion" />
 
-	<rule ref="SlevomatCodingStandard.ControlStructures.EarlyExit" />
 	<rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator" />
 
 	<rule ref="SlevomatCodingStandard.Exceptions.DeadCatch" />

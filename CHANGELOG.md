@@ -9,6 +9,6 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-## 0.0.1 - 2025-06-22
+## 0.0.1 - 2026-01-15
 
-- Initial commit.
+- Initial (internal) release.

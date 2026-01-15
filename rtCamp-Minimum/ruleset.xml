@@ -22,7 +22,7 @@
 		@see: https://github.com/WordPress/WordPress-Coding-Standard
 	-->
 	<rule ref="WordPress-Extra" >
-			<!-- Deprecated: @todo remove in PHPCS 4.0 -->
+		<!-- Deprecated: @todo remove in PHPCS 4.0 -->
 		<exclude name="Generic.Functions.CallTimePassByReference" />
 
 		<!-- Users may be using modern syntaxes -->
@@ -43,7 +43,7 @@
 		<exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid"/>
 	</rule>
 
-	<!-- 
+	<!--
 		Load PHPCompatibility & PHPCompatibilityWP
 		@see: https://github.com/PHPCompatibility/PHPCompatibilityWP
 	-->
