@@ -1,6 +1,0 @@
-{
-	"_comment": "This is a fine-grained token with read-only access to the content and metadata of rtcamp/coding-standards-d and can be used by Composer to download this package. It has no other permissions and can be revoked at any time.",
-	"github-oauth": {
-		"github.com": "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"
-	}
-}
