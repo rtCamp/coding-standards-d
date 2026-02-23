@@ -37,7 +37,7 @@ Consistent coding standards reduce bugs, prevent common mistakes, and lower tech
 
 - [`rtCamp`](rtCamp/ruleset.xml): the full superset with all of the sniffs in the project.
 
-    🎯 **Use this by default** and customize as needed, unless you have a particular reason to use or compose the others.
+  🎯 **Use this by default** and customize as needed, unless you have a particular reason to use or compose the others.
 
 - [`rtCamp-Minimum`](./rtCamp-Minimum/ruleset.xml): Essential sniffs for enterprise-ready code. All rtCamp code should pass this.
 
@@ -45,7 +45,7 @@ Consistent coding standards reduce bugs, prevent common mistakes, and lower tech
 
 - [`rtCamp-Extra`](./rtCamp-Extra/ruleset.xml): `rtCamp-Basic` plus additional quality-focused sniffs for internal projects that prioritize higher standards without `rtCamp-Strict`'s rigidity.
 
-- [`rtCamp-Strict`](./rtCamp-Strict/ruleset.xml): `rtCamp-Basic` plus stricter functional sniffs for maximum quality and maintainability.  This is recommended for public plugins and themes, or any project where you want to ensure the highest standards of code quality.
+- [`rtCamp-Strict`](./rtCamp-Strict/ruleset.xml): `rtCamp-Basic` plus stricter functional sniffs for maximum quality and maintainability. This is recommended for public plugins and themes, or any project where you want to ensure the highest standards of code quality.
 
 - [`rtCamp-Docs`](./rtCamp-Docs/ruleset.xml): Doc-block and comment sniffs to ensure clear, well-documented code. This is recommended for any project where you want to ensure that your code is well-documented and easy to understand - by developers and AI agents alike.
 
