@@ -1,17 +1,16 @@
-# `rtCamp Coding Standards D`
+# rtCamp Coding Standards D
 
 > The `D` is for David, the standards are for everyone.
 
 -----
 
 > [!WARNING]
-> This is an unsanctioned project by @justlevine that is not (yet?) endorsed or supported by rtCamp.
->
-> Tl;dr this is just the _beginning_ of the conversation.
+> This is an experimental project by @justlevine that is not (yet?) endorsed or supported by rtCamp.
 
 -----
 
-This project is a collection of rules and sniffs for [PHPCS](https://github.com/PHPCSStandards/PHP_CodeSniffer) to validate code developed for Enterprise-grade WordPress projects. It uses rules from:
+A compact collection of PHPCS rulesets and sniffs for enterprise WordPress projects. It combines and curates rules from:
+
  - [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards)
  - [Automattic VIP Coding Standards](https://github.com/Automattic/VIP-Coding-Standards)
  - [Slevomat Coding Standard](https://https://github.com/slevomat/coding-standard)
@@ -32,21 +31,13 @@ They help to avoid common pitfalls and mistakes, which in turn helps to reduce b
 
 ## Why use _these_ Coding Standards?
 
-As the premier agency for enterprise-grade WordPress development, rtCamp needs to ensure that all code we write is high-quality, maintainable, and scalable. These rulesets are tailored to modern, enterprise work, and include important guardrails and autofixable sniffs to help rtCampers ship better code, faster.
+- Ensure consistent, maintainable code across teams.
+- Catch common bugs and reduce technical debt.
+- Provide autofixable sniffs and practical guardrails for developers and AI tools.
 
 ## Rulesets
 
-The project provides a superset of sniffs that are tailored for the different needs of the common WordPress projects we work on.
-
-Sniffs are grouped into different rulesets, allowing you to select the ones that make the most sense for the needs and constraints of your project. For example:
-
-- A throwaway [migration-plugin](https://github.com/rtCamp/migration-plugin-skeleton-d) only needs the minimal set of sniffs to ensure that the code can run well on the target site and enable multiple developers to contribute to the codebase.
-- A [feature plugin](https://github.com/rtCamp/features-plugin-skeleton-d) that is being handed-off to a client would benefit from autofixable sniffs, and the proper balance of functional sniffs to provide less-skilled developers the proper guardrails without slowing them down too much.
-- A public plugin or theme should have strict rules - especially around documentation - and follow ecosystem patterns as much as possible. This helps the project's long-term maintainability, makes it easier for others to contribute to, all while serving as an example of best practices for the wider WordPress community.
-
-You can also use `rtCamp` ruleset to get _all_ the checks.
-
-You can use the following standard names when invoking `phpcs` to select the sniffs you want to use.
+- [`rtCamp`](rtCamp/ruleset.xml): the full superset. It includes all rules from the other sets, and is designed to be comprehensive while still practical for most projects. We recommend starting with this and then customizing as needed. **Use this by default.** 
 
   - [`rtCamp`](./rtCamp/ruleset.xml) - complete set with all of the sniffs in the project.
 
@@ -64,23 +55,7 @@ You can use the following standard names when invoking `phpcs` to select the sni
 
 ## Installation
 
-The recommended way to install this project is with [Composer](https://getcomposer.org/). Run the following command to install it into your project:
-
-> [!IMPORTANT]
-> Until this project is released publicly, you will need to add the repository to your `composer.json` file:
->
-> ```json
-> {
->   "repositories": [
->     {
->       "type": "vcs",
->       "url": "https://github.com/rtCamp/coding-standards-d.git"
->     }
->   ],
-> }
-> ```
-> Composer will then ask for a GitHub personal access token (PAT) with `read:packages` scope to access the repository.
-> ( You can use the one in the `auth.json.example`, or even just drop that file into your project. It's only got content:read and metadata:read for this repo. 🤫)
+Recommended via [Composer](https://getcomposer.org/):
 
 ```bash
 composer require --dev rtCamp/coding-standards-d
@@ -92,34 +67,27 @@ We recommend the [PHP_CodeSniffer Standards Composer Installer Plugin](https://g
 
 For more information about installation and usage, see the [WPCS readme](https://github.com/WordPress/WordPress-Coding-Standards#Installation).
 
-## Configuring your custom ruleset.
+## Configuring your project
 
+> [!TIP]
 > To quick-start your project, you can copy the [example config file](./phpcs.xml.dist.example) to your project root and rename it to `.phpcs.xml.dist`, then update the individual values as explained below.
 
-The best way to use these sniffs in your project is to create a [local configuration file](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Advanced-Usage#using-a-default-configuration-file) that extends the rulesets provided by this project. When you name this file either `.phpcs.xml`, `phpcs.xml`, `.phpcs.xml.dist` or `phpcs.xml.dist`, PHP_CodeSniffer will automatically locate it as long as it is placed in the directory from which you run the CodeSniffer or in a directory above it.
+Key settings to configure in your local file:
+- `testVersion`: minimum PHP version to test (we recommend PHP 8.2+ unless constrained).
+- `minimum_wp_version`: lowest WordPress version you support.
+- `WordPress.WP.I18n.text_domain`: recommended format `rt-<project-name>`.
+- `WordPress.NamingConventions.PrefixAllGlobals`: list of project prefixes.
 
-In this file, you will want to configure the following:
+## Special configurations
 
-- [`testVersion`](./phpcs.xml.dist.example#L49) - The minimum PHP version you want to test against. This should be the _lowest version of PHP that you want to support_. While WordPress officially supports PHP 7.2+ we recommend PHP 8.2+ unless you have a specific reason to support older versions (e.g. a public plugin or legacy project).
-- [`minimum_wp_version`](./phpcs.xml.dist.example#L55) - The minimum WordPress version you want to test against. This should be the lowest version of WordPress that you want to support. For client projects, this is usually the version of WordPress that the client is usually using.
-- [`WordPress.WP.I18n.text_domain`](./phpcs.xml.dist.example#L72) - The text domain used in your project. This is used by the `WordPress.WP.I18n` sniff to check that all translatable strings are assigned to a text domain. We recommend using the format `rt-<project-name>`.
-- [`WordPress.NamingConventions.PrefixAllGlobals`](./phpcs.xml.dist.example#L57) - The list of prefixes used in your project. This is used by the `WordPress.NamingConventions.PrefixAllGlobals` sniff to check that all global functions, classes, constants, and variables are prefixed.
+- Non-WPVIP hosts: [TODO]
+- PSR-4 autoloading: [TODO]
+- Test files: [TODO]
 
-## Special Configurations
+## Development & support
 
-### Non-WPVIP Hosts
+Add a `CONTRIBUTING.md` or `DEVELOPMENT.md` when ready. Meanwhile, open issues on GitHub or contact David Levine.
 
-[ @todo ]
-
-### PSR-4-style Autoloading
-
-[ @todo ]
-
-## Development and Support
-
-@TODO add a CONTRIBUTING.md / DEVELOPMENT.md
-
-In the interim, open issues in GH, and reach out to David Levine on Slack.
 
 ## Versioning
 
