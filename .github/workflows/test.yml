@@ -9,14 +9,9 @@ on:
   push:
     branches:
       - main
-      - develop
   pull_request:
     branches:
       - main
-      - develop
-  schedule:
-    # Run weekly on Mondays at 00:00 UTC
-    - cron: '0 0 * * 1'
   workflow_dispatch: # Allow manual triggering
 
 # Cancels all previous workflow runs for the same branch that have not yet completed.
@@ -67,4 +62,4 @@ jobs:
         uses: phpcsstandards/xmllint-validate@0fd9c4a9046055f621fca4bbdccb8eab1fd59fdc # v1.0.1
         with:
           pattern: "./*/ruleset.xml"
-          xsd-file: "vendor/phpcsstandards/phpcsdevtools/DocsXsd/phpcsdocs.xsd"
+          xsd-file: "vendor/squizlabs/php_codesniffer/phpcs.xsd"
