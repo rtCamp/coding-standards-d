@@ -101,6 +101,17 @@ Because code quality tooling can make "breaking" ambiguous, we follow [Eslint's 
 
 Minor releases may increase reported linting errors. For projects without a lockfile, pin the dependency with a tilde(`~`) in `composer.json` to receive patch updates only, e.g. "rtcamp/coding-standards-d": "~1.1.0".
 
+### Automated Releases
+
+This project uses [release-please](https://github.com/googleapis/release-please) to automate versioning and releases. To trigger a release, use [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `feat:` for **MINOR** releases (new rules, behavior changes).
+- `fix:` for **PATCH** releases (bug fixes).
+- `fix(deps):` for production dependency updates.
+- Commits with `!` or `BREAKING CHANGE:` in the footer for **MAJOR** releases.
+
+Releases are automatically managed via a "Release PR". Merging this PR will tag the release, create a GitHub Release, and update the `CHANGELOG.md`.
+
 > [!IMPORTANT]
 > These guidelines apply to most PHPCS ruleset libraries, including those we use in this project.
 >

@@ -9,8 +9,15 @@ updates:
       semver-minor-days: 7
       semver-patch-days: 7
     groups:
-      composer-minor-patch:
+      production-deps:
+        dependency-type: 'production'
         update-types: [minor, patch]
+      development-deps:
+        dependency-type: 'development'
+        update-types: [minor, patch]
+    commit-message:
+      prefix: 'chore(deps)'
+
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
@@ -18,3 +25,5 @@ updates:
     groups:
       github-actions-updates:
         patterns: ['*']
+    commit-message:
+      prefix: 'chore(deps)'
