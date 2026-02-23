@@ -5,9 +5,13 @@ All notable changes to this project will be documented in this file.
 > [!NOTE]
 > This projects adheres to [Semantic Versioning](https://semver.org/) and [Keep a CHANGELOG](https://keepachangelog.com/).
 >
-> For more information about the versioning and release process, see [@todo](./README.md).
+> For more information about the versioning and release process, see [Versioning](README.md#versioning).
 
 ## Unreleased
+
+## 0.1.0 - 2026-02-26
+
+- Initial (public) release.
 
 ## 0.0.2 - 2026-01-15
 
