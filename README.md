@@ -37,7 +37,7 @@ Consistent coding standards reduce bugs, prevent common mistakes, and lower tech
 
 - [`rtCamp`](rtCamp/ruleset.xml): the full superset with all of the sniffs in the project.
 
-    🎯 **Use this by default** and customize as needed, unless you have a particular reason to use or compose the others.
+  🎯 **Use this by default** and customize as needed, unless you have a particular reason to use or compose the others.
 
 - [`rtCamp-Minimum`](./rtCamp-Minimum/ruleset.xml): Essential sniffs for enterprise-ready code. All rtCamp code should pass this.
 
@@ -45,7 +45,7 @@ Consistent coding standards reduce bugs, prevent common mistakes, and lower tech
 
 - [`rtCamp-Extra`](./rtCamp-Extra/ruleset.xml): `rtCamp-Basic` plus additional quality-focused sniffs for internal projects that prioritize higher standards without `rtCamp-Strict`'s rigidity.
 
-- [`rtCamp-Strict`](./rtCamp-Strict/ruleset.xml): `rtCamp-Basic` plus stricter functional sniffs for maximum quality and maintainability.  This is recommended for public plugins and themes, or any project where you want to ensure the highest standards of code quality.
+- [`rtCamp-Strict`](./rtCamp-Strict/ruleset.xml): `rtCamp-Basic` plus stricter functional sniffs for maximum quality and maintainability. This is recommended for public plugins and themes, or any project where you want to ensure the highest standards of code quality.
 
 - [`rtCamp-Docs`](./rtCamp-Docs/ruleset.xml): Doc-block and comment sniffs to ensure clear, well-documented code. This is recommended for any project where you want to ensure that your code is well-documented and easy to understand - by developers and AI agents alike.
 
@@ -100,6 +100,19 @@ Because code quality tooling can make "breaking" ambiguous, we follow [Eslint's 
 - **MAJOR** release contain breaking changes such as: renaming/splitting rulesets, adding/removing/moving rules, or major dependency bumps. These changes may cause existing code to fail linting and require changes to your config or CI workflow.
 
 Minor releases may increase reported linting errors. For projects without a lockfile, pin the dependency with a tilde(`~`) in `composer.json` to receive patch updates only, e.g. "rtcamp/coding-standards-d": "~1.1.0".
+
+### Automated Releases
+
+This project uses [release-please](https://github.com/googleapis/release-please) to automate versioning and releases. To trigger a release, use [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `feat:` for **MINOR** releases (new rules, behavior changes).
+- `fix:` for **PATCH** releases (bug fixes, dependency updates).
+- Commits with `!` or `BREAKING CHANGE:` in the footer for **MAJOR** releases.
+
+Releases are automatically managed via a "Release PR". Merging this PR will tag the release, create a GitHub Release, and update the `CHANGELOG.md`.
+
+> [!TIP]
+> Dependabot is configured to use the `fix(deps):` prefix for all updates to ensure production dependency changes trigger a release. For development-only updates, you can manually change the PR title to `chore(deps):` before merging if a version bump is not desired.
 
 > [!IMPORTANT]
 > These guidelines apply to most PHPCS ruleset libraries, including those we use in this project.

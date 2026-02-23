@@ -37,8 +37,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
-            show-progress: ${{ runner.debug == '1' && 'true' || 'false' }}
-            persist-credentials: false
+          show-progress: ${{ runner.debug == '1' && 'true' || 'false' }}
+          persist-credentials: false
 
       - name: Setup PHP
         uses: shivammathur/setup-php@ec406be512d7077f68eed36e63f4d91bc006edc4 # v2.35.4
@@ -65,5 +65,5 @@ jobs:
       - name: Validate the WordPress rulesets
         uses: phpcsstandards/xmllint-validate@0fd9c4a9046055f621fca4bbdccb8eab1fd59fdc # v1.0.1
         with:
-          pattern: "./*/ruleset.xml"
-          xsd-file: "vendor/squizlabs/php_codesniffer/phpcs.xsd"
+          pattern: './*/ruleset.xml'
+          xsd-file: 'vendor/squizlabs/php_codesniffer/phpcs.xsd'
