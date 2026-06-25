@@ -9,6 +9,16 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## [0.1.2](https://github.com/rtCamp/coding-standards-d/compare/v0.1.1...v0.1.2) (2026-06-25)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump actions/checkout from 6.0.2 to 6.0.3 ([#16](https://github.com/rtCamp/coding-standards-d/issues/16)) ([45afc61](https://github.com/rtCamp/coding-standards-d/commit/45afc6162b50cab5cdf28ebe60c58058d2f5e258))
+* **deps:** bump actions/checkout from 6.0.3 to 7.0.0 ([#20](https://github.com/rtCamp/coding-standards-d/issues/20)) ([82f2aaa](https://github.com/rtCamp/coding-standards-d/commit/82f2aaa3c67f4773fa528cf56ff2573c2639a40e))
+* **deps:** bump phpcsstandards/xmllint-validate from 1.0.1 to 2.0.0 ([#19](https://github.com/rtCamp/coding-standards-d/issues/19)) ([bcf155f](https://github.com/rtCamp/coding-standards-d/commit/bcf155fa4e0a1d4caba1ebc9e8ab91315fa501f6))
+* **deps:** bump shivammathur/setup-php from 2.37.1 to 2.37.2 ([#18](https://github.com/rtCamp/coding-standards-d/issues/18)) ([428670d](https://github.com/rtCamp/coding-standards-d/commit/428670d988c14c5fef822570713174e59f38c1a6))
+
 ## [0.1.1](https://github.com/rtCamp/coding-standards-d/compare/v0.1.0...v0.1.1) (2026-05-14)
 
 
